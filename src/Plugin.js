@@ -1,7 +1,7 @@
 /**
  * Initialize Pattern builder plugin.
  */
-;(function ($) {
+;(function () {
 
     var pluginName = 'patternMaker',
         pluginDefaults = {
@@ -35,13 +35,13 @@
      *
      * @param  {object}     options     Initialization options
      */
-    $.fn[pluginName] = function(options) {
+    jQuery.fn[pluginName] = function(options) {
         return this.each(function () {
-            if (!$.data(this, "plugin_" + pluginName)) {
-                $.data(this, "plugin_" + pluginName);
+            if (!jQuery.data(this, "plugin_" + pluginName)) {
+                jQuery.data(this, "plugin_" + pluginName);
                 new Plugin(this, options);
             }
         });
     };
 
-})(jQuery);
+})();
