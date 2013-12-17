@@ -1,0 +1,8 @@
+body > article {
+    width: 980px;
+    margin: 10px auto 0 auto;
+}
+
+h1 {
+    color: red;
+}
