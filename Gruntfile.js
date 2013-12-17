@@ -1,15 +1,42 @@
+var sourceFiles = [
+      'src/RandomColor.js'
+];
+
 module.exports = function(grunt) {
 
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+
+        buildDir: 'build',
+        bundleName: '<%= pkg.name %>-<%= pkg.version %>',
+
         uglify: {
             options: {
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+                banner: [
+                    '/**',
+                    ' * Package:    <%= pkg.name %>',
+                    ' * Build:      <%= grunt.template.today("yyyy-mm-dd") %>',
+                    ' * Version:    <%= pkg.version %>',
+                    ' */\n'
+                ].join('\n')
             },
-            build: {
-                src: 'src/*.js',
-                dest: 'build/<%= pkg.name %>-<%= pkg.version %>.min.js'
+            js: {
+                options: {
+                    mangle: false,
+                    beautify: true,
+                    compress: false
+                },
+                src: sourceFiles,
+                dest: '<%= buildDir %>/<%= bundleName %>.js'
+            },
+            jsmin: {
+                options: {
+                    mangle: true,
+                    compress: true
+                },
+                src: sourceFiles,
+                dest: '<%= buildDir %>/<%= bundleName %>.min.js'
             }
         }
     });
@@ -18,5 +45,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // Default task(s).
-    grunt.registerTask('default', ['uglify']);
+    grunt.registerTask('default', []);
+    grunt.registerTask('dist', ['uglify']);
 };
