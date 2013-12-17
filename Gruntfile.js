@@ -1,5 +1,7 @@
 var sourceFiles = [
-      'src/RandomColor.js'
+    'src/Utils.js',
+    'src/RandomColor.js',
+    'src/Plugin.js',
 ];
 
 module.exports = function(grunt) {
@@ -9,7 +11,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         buildDir: 'build',
-        bundleName: '<%= pkg.name %>-<%= pkg.version %>',
+        bundleName: '<%= pkg.name %>',
 
         uglify: {
             options: {
@@ -19,7 +21,8 @@ module.exports = function(grunt) {
                     ' * Build:      <%= grunt.template.today("yyyy-mm-dd") %>',
                     ' * Version:    <%= pkg.version %>',
                     ' */\n'
-                ].join('\n')
+                ].join('\n'),
+                enclose: { 'window.jQuery': '$' }
             },
             js: {
                 options: {
@@ -32,7 +35,9 @@ module.exports = function(grunt) {
             },
             jsmin: {
                 options: {
-                    mangle: true,
+                    mangle: {
+                        except: ['jQuery', '$']
+                    },
                     compress: true
                 },
                 src: sourceFiles,
