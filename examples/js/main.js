@@ -7,7 +7,6 @@ $(document).ready(function() {
         ['#D0DF82', '#ECD026', '#FD4F4E', '#A11931', '#2A1B14']
     ];
 
-    var $board = $('body > article > section');
+    var $canvas = $('body > article > section > canvas');
 
-    $board.html('<p>Testing...<p>');
 });
