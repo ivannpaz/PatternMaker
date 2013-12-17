@@ -10,14 +10,14 @@ var RandomColor = (function() {
      *
      * @param {array}   palette  Colors to randomize from.
      */
-    function Plugin(palette) {
+    function RandomColor(palette) {
         this.setPalette(palette);
     }
 
     /**
      * Set the current palette
      */
-    Plugin.prototype.setPalette = function(palette) {
+    RandomColor.prototype.setPalette = function(palette) {
         this._palette = palette || [];
         this._lastColor = false;
         this._delivered = [];
@@ -29,11 +29,12 @@ var RandomColor = (function() {
      *
      * @return {string}
      */
-    Plugin.prototype.getColor = function() {
-        var color = false;
+    RandomColor.prototype.getColor = function() {
+        var color = false,
+            maxIndex = this._palette.length;
 
         do {
-            color = this._palette[this._getRandom(this._palette.length)];
+            color = this._palette[Utils.getRandom(maxIndex)];
         } while(color === this._lastColor) ;
 
         this._updateDelivered(color);
@@ -45,7 +46,7 @@ var RandomColor = (function() {
      * DEBUG
      * @return {array}
      */
-    Plugin.prototype.getStats = function() {
+    RandomColor.prototype.getStats = function() {
         console.log(this._delivered);
     };
 
@@ -55,7 +56,7 @@ var RandomColor = (function() {
      *
      * @param  {string}     color
      */
-    Plugin.prototype._updateDelivered = function(color) {
+    RandomColor.prototype._updateDelivered = function(color) {
         if (!(color in this._delivered)) {
             this._delivered[color] = 0;
         }
@@ -64,17 +65,6 @@ var RandomColor = (function() {
         this._delivered[color]++;
     };
 
-    /**
-     * Get a random number from 0 to max items in palette.
-     *
-     * @param {int} max     Upper limit.
-     *
-     * @return {int}
-     */
-    function _getRandom(max) {
-        return Math.floor(Math.random() * max);
-    }
-
-    return Plugin;
+    return RandomColor;
 
 })();
