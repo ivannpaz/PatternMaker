@@ -1,0 +1,10 @@
+{
+    "name": "PatternMaker",
+    "version": "0.1.0",
+    "main": [
+        "build/PatternMaker-0.1.0.min.js"
+    ],
+    "dependencies": {
+        "jquery": "~1.9"
+    }
+}
