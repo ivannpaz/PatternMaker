@@ -1,6 +1,8 @@
 var sourceFiles = [
     'src/Utils.js',
     'src/RandomColor.js',
+    'src/AreaCoordinates.js',
+    'src/DrawingFrame.js',
     'src/Plugin.js',
 ];
 
