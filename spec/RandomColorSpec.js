@@ -16,6 +16,10 @@ describe("RandomColor", function() {
         subject = new RandomColor(samplePalette);
     });
 
+    afterEach(function() {
+        subject = null;
+    });
+
     it("will be initialized with a given palette", function() {
         expect(subject._lastColor).toBe(false);
         expect(subject._delivered).toEqual([]);
