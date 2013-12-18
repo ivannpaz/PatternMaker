@@ -12,7 +12,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        buildDir: 'build',
+        buildDir: 'dist',
         bundleName: '<%= pkg.name %>',
 
         uglify: {
