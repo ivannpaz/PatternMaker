@@ -38,8 +38,34 @@
         };
         return RandomColor;
     }();
+    var AreaCoordinates = function() {
+        function AreaCoordinates(x, y, w, h) {
+            this.x = x;
+            this.y = y;
+            this.w = w;
+            this.h = h;
+        }
+        AreaCoordinates.prototype.getAll = function() {
+            return [ this.x, this.y, this.w, this.h ];
+        };
+        return AreaCoordinates;
+    }();
+    var DrawingFrame = function() {
+        function DrawingFrame(param) {
+            this.param = param;
+        }
+        return DrawingFrame;
+    }();
     (function() {
         var pluginName = "patternMaker", pluginDefaults = {
+            background: "#FFFFFF",
+            frameSize: false,
+            frameColor: false,
+            columnWidth: 5,
+            columns: false,
+            maxBlocks: 3,
+            minBlockSize: 30,
+            canvasContent: false,
             palette: []
         };
         function Plugin(element, options) {
@@ -50,6 +76,11 @@
         }
         Plugin.prototype.init = function() {
             this._palette = new RandomColor(this.options.palette);
+            this._canvas = new fabric.StaticCanvas(this.element);
+            var frameArea = new AreaCoordinates(22, 33, 44, 55);
+            var drawArea = new AreaCoordinates(66, 77, 88, 99);
+            console.log(frameArea.getAll());
+            console.log(drawArea.getAll());
         };
         jQuery.fn[pluginName] = function(options) {
             return this.each(function() {
