@@ -47,7 +47,7 @@ var RandomColor = (function() {
      * @return {array}
      */
     RandomColor.prototype.getStats = function() {
-        console.log(this._delivered);
+        return this._delivered;
     };
 
     /**
