@@ -5,7 +5,7 @@ eval(require('fs').readFileSync('./src/Utils.js', 'utf8'));
 eval(require('fs').readFileSync('./src/RandomColor.js', 'utf8'));
 
 /**
- * Test suite
+ * Test suite for RandomColor in isolation
  */
 describe("RandomColor", function() {
 
