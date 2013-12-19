@@ -20,7 +20,7 @@ var RandomColor = (function() {
     RandomColor.prototype.setPalette = function(palette) {
         this._palette = palette || [];
         this._lastColor = false;
-        this._delivered = [];
+        this._delivered = {};
     };
 
     /**
@@ -57,7 +57,7 @@ var RandomColor = (function() {
      * @param  {string}     color
      */
     RandomColor.prototype._updateDelivered = function(color) {
-        if (!(color in this._delivered)) {
+        if (!this._delivered.hasOwnProperty(color)) {
             this._delivered[color] = 0;
         }
 
