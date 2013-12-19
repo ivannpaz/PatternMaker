@@ -6,7 +6,7 @@
         "url": "https://github.com/ivannpaz/PatternMaker.git"
     },
     "scripts": {
-        "test": "jasmine-node spec/"
+        "test": "mocha"
     },
     "devDependencies" : {
         "grunt": "~0.4.2",
