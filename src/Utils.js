@@ -14,6 +14,16 @@ var Utils = {
      */
     getRandom: function(max) {
         return Math.floor(Math.random() * max);
+    },
+
+    /**
+     * Check if a given parameter is actually a number type.
+     *
+     * @param  {any}  obj
+     * @return {Boolean}
+     */
+    isNumber: function(obj) {
+        return typeof obj === 'number';
     }
 
 };
