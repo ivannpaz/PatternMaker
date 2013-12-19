@@ -46,9 +46,9 @@ describe("RandomColor", function() {
      */
     it("will store the stats", function() {
         var color1  = subject.getColor(),
-            color2  = subject.getColor();
+            color2  = subject.getColor(),
+            expected = {};
 
-        var expected = {};
         expected[color1] = 1;
         expected[color2] = 1;
 
