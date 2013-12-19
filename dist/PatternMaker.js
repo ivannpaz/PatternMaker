@@ -41,7 +41,7 @@
         };
         return RandomColor;
     }();
-    var AreaCoordinates = function(exports) {
+    var AreaCoordinates = function() {
         function AreaCoordinates(x, y, w, h) {
             this.coords = {
                 x: x,
@@ -50,8 +50,6 @@
                 h: h
             };
         }
-        console.log(exports);
-        exports.AreaCoordinates = AreaCoordinates;
         AreaCoordinates.prototype.getCoordinates = function() {
             return this.coords;
         };
@@ -80,7 +78,7 @@
             return coords[key];
         };
         return AreaCoordinates;
-    }(this);
+    }();
     var DrawingFrame = function() {
         function DrawingFrame(param) {
             this.param = param;
