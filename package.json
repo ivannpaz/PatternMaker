@@ -1,7 +1,11 @@
 {
     "name": "PatternMaker",
     "version": "0.1.0",
-    "devDependencies": {
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ivannpaz/PatternMaker.git"
+    },
+    "devDependencies" : {
         "grunt": "~0.4.2",
         "grunt-contrib-jshint": "~0.6.3",
         "grunt-contrib-nodeunit": "~0.2.0",
