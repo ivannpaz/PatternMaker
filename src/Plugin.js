@@ -35,11 +35,11 @@
      */
     Plugin.prototype.init = function()
     {
-        this._palette = new RandomColor(this.options.palette);
-        this._canvas = new fabric.StaticCanvas(this.element);
+        this._palette   = new RandomColor(this.options.palette);
+        this._canvas    = new WebCanvas(this.element);
 
-        var frameArea = new AreaCoordinates(22, 33, 44, 55);
-        var drawArea = new AreaCoordinates(66, 77, 88, 99);
+        var frameArea   = new AreaCoordinates(22, 33, 44, 55);
+        var drawArea    = new AreaCoordinates(66, 77, 88, 99);
 
         console.log(frameArea.getAll());
         console.log(drawArea.getAll());
