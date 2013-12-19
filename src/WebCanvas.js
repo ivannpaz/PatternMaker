@@ -8,8 +8,8 @@ var WebCanvas = (function() {
     /**
      * Class Constructor.
      */
-    function WebCanvas() {
-        this.init();
+    function WebCanvas(element) {
+        this._canvas = new fabric.StaticCanvas(element);
     }
 
     /**
